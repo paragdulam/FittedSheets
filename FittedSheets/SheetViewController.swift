@@ -570,7 +570,7 @@ public class SheetViewController: UIViewController {
         let previousSize = self.currentSize
         self.currentSize = size
         
-        let oldConstraintHeight = self.contentViewHeightConstraint.constant
+        let oldConstraintHeight = self.contentViewHeightConstraint?.constant
         
         let newHeight = self.height(for: size)
         
