@@ -11,7 +11,7 @@ import UIKit
 
 extension UIViewController {
     /// The sheet view controller presenting the current view controller heiarchy (if any)
-    public var sheetViewController: SheetViewController? {
+    @objc public var sheetViewController: SheetViewController? {
         var parent = self.parent
         while let currentParent = parent {
             if let sheetViewController = currentParent as? SheetViewController {
@@ -21,6 +21,17 @@ extension UIViewController {
             }
         }
         return nil
+    }
+}
+
+extension SheetViewController {
+    
+    @objc public var sheetChildViewController: UIViewController {
+        return childViewController
+    }
+    
+    @objc public var canDismissSheetManually: Bool {
+        return dismissOnPull && dismissOnOverlayTap
     }
 }
 
